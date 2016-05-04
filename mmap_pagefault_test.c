@@ -1,16 +1,21 @@
+#define _GNU_SOURCE
 #include <assert.h>
 #include <fcntl.h>
 #include <linux/limits.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdarg.h>
 #include <stdlib.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <time.h>
 
 void usage(char *progname) {
-  printf("Usage: %s <input_file>\n", progname);
+  printf("Usage: %s <input_file> <log_file>\n\n", progname);
+  puts("The program keeps running, and will print the following each second on a new line");
+  puts("<timestamp> <tab> <number of major pagefaults (that require disk IO)>");
 }
 
 struct proc_stat {
@@ -69,11 +74,14 @@ void parse_proc_stat(struct proc_stat *to) {
 }
 
 int main(int argc, char *argv[]) {
-  if (argc != 2) {
+  if (argc != 3) {
     fprintf(stderr, "Wrong number of arguments!\n");
     usage(argv[0]);
     exit(1);
   }
+
+  FILE *log_file = fopen(argv[2], "w");
+  assert(log_file != NULL);
 
   // Validate the params
   char *file_name = argv[1];
@@ -102,7 +110,7 @@ int main(int argc, char *argv[]) {
     int fd = open(file_name, O_RDONLY);
     assert(fd != -1);
 
-    uint64_t *ptr = mmap(NULL, filestat.st_size, PROT_READ, MAP_SHARED, fd, 0);
+    uint64_t *ptr = mmap(NULL, filestat.st_size, PROT_READ, MAP_SHARED | MAP_NONBLOCK, fd, 0);
     if (ptr == ((void*) -1)) {
       perror("Could not mmap file!");
     }
@@ -117,7 +125,20 @@ int main(int argc, char *argv[]) {
 
     struct proc_stat stats;
     parse_proc_stat(&stats);
-    printf("%i\t%lu\n", iteration, stats.majflt - prev_majflt);
+
+    time_t timer;
+    char time_buffer[26];
+    struct tm* tm_info;
+
+    time(&timer);
+    tm_info = localtime(&timer);
+
+    strftime(time_buffer, 26, "%Y:%m:%d %H:%M:%S", tm_info);
+
+    fprintf(log_file, "%s\t%lu\n", time_buffer, stats.majflt - prev_majflt);
+    fflush(log_file);
+    //fprintf(stderr, "%s\t%lu\n", time_buffer, stats.majflt - prev_majflt);
+    sync();
     prev_majflt = stats.majflt;
 
     assert(munmap(ptr, filestat.st_size) != -1);
