@@ -15,7 +15,7 @@
 void usage(char *progname) {
   printf("Usage: %s <input_file> <log_file>\n\n", progname);
   puts("The program keeps running, and will print the following each second on a new line");
-  puts("<timestamp> <tab> <number of major pagefaults (that require disk IO)>");
+  puts("<timestamp>,<number of major pagefaults>");
 }
 
 struct proc_stat {
@@ -135,9 +135,8 @@ int main(int argc, char *argv[]) {
 
     strftime(time_buffer, 26, "%Y:%m:%d %H:%M:%S", tm_info);
 
-    fprintf(log_file, "%s\t%lu\n", time_buffer, stats.majflt - prev_majflt);
+    fprintf(log_file, "%s,%lu\n", time_buffer, stats.majflt - prev_majflt);
     fflush(log_file);
-    //fprintf(stderr, "%s\t%lu\n", time_buffer, stats.majflt - prev_majflt);
     sync();
     prev_majflt = stats.majflt;
 
