@@ -25,19 +25,19 @@ es.at(0, "start A") do
   c1.system("./mmap_pagefault_test inputs/1G-A #{log_path.join("a.log")}")
 end
 
-es.at(10, "start B") do
+es.at(20, "start B") do
   c2.system("./mmap_pagefault_test inputs/1G-B #{log_path.join("b.log")}")
 end
 
-es.at(20, "start C") do
-  c2.system("./mmap_pagefault_test inputs/1G-C #{log_path.join("c.log")}")
+es.at(40, "start C") do
+  c3.system("./mmap_pagefault_test inputs/1G-C #{log_path.join("c.log")}")
 end
 
-es.at(30, "start C2") do
-  c2.system("./mmap_pagefault_test inputs/1G-D #{log_path.join("c2.log")}")
+es.at(60, "start C2") do
+  c3.system("./mmap_pagefault_test inputs/1G-D #{log_path.join("c2.log")}")
 end
 
-es.at(60, "end of tests") do
+es.at(80, "end of tests") do
 end
 
 es.start!
@@ -48,4 +48,5 @@ system("ps auxf | grep './[m]map_pagefault_test' | awk -F' ' '{print $2}' | xarg
 
 c1.destroy!
 c2.destroy!
+c3.destroy!
 base.destroy!
