@@ -13,9 +13,9 @@ clear_all_caches
 base = CGroup.new("cgrouptest").create!
 c1 = base.child("c1").create!
 c2 = base.child("c2").create!
-base.set("memory.limit_in_bytes", "1000M")
-c1.set("memory.limit_in_bytes", "500M")
-c2.set("memory.limit_in_bytes", "500M")
+base.set("memory.limit_in_bytes", "100M")
+c1.set("memory.limit_in_bytes", "50M")
+c2.set("memory.limit_in_bytes", "50M")
 
 es = EventSimulator.new
 
@@ -23,8 +23,12 @@ es.at(0, "start A") do
   c1.system("./mmap_pagefault_test inputs/50mb-A #{log_path.join("a.log")}")
 end
 
-es.at(20, "start B") do
-  c1.system("./mmap_pagefault_test inputs/50mb-B #{log_path.join("b.log")}")
+es.at(10, "start B") do
+  c2.system("./mmap_pagefault_test inputs/50mb-B #{log_path.join("b.log")}")
+end
+
+es.at(20, "start B2") do
+  c2.system("./mmap_pagefault_test inputs/50mb-C #{log_path.join("b2.log")}")
 end
 
 es.at(40, "end of tests") do
