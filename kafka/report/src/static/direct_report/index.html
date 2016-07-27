@@ -1,0 +1,35 @@
+<html><h1></h1>
+<h2>Settings</h2>
+<pre>
+{"limited_stress_slice_size_limit_in_mb":7680,"producer_test_record_size_in_bytes":102400,"producer_test_throughput_msgs_per_s":350}
+</pre>
+<h2>Events</h2>
+<pre>
+<table border=1><thead><tr><th>rel time</th><th>abs time</th><th>event</th></tr></thead><tbody>
+<tr><td>0</td><td>2016:07:27 10:37:56</td><td>kill disk caches at slave-1</td></tr>
+<tr><td>0</td><td>2016:07:27 10:37:56</td><td>kill disk caches at slave-2</td></tr>
+<tr><td>0</td><td>2016:07:27 10:37:56</td><td>kill disk caches at slave-3</td></tr>
+<tr><td>10</td><td>2016:07:27 10:38:06</td><td>start producer bench on client-1</td></tr>
+<tr><td>10</td><td>2016:07:27 10:38:06</td><td>start producer bench on client-2</td></tr>
+<tr><td>190</td><td>2016:07:27 10:41:06</td><td>start stress slave-1 for 60s</td></tr>
+<tr><td>190</td><td>2016:07:27 10:41:06</td><td>start stress slave-2 for 60s</td></tr>
+<tr><td>190</td><td>2016:07:27 10:41:06</td><td>start stress slave-3 for 60s</td></tr>
+<tr><td>250</td><td>2016:07:27 10:42:06</td><td>stopped stressing slave-1</td></tr>
+<tr><td>250</td><td>2016:07:27 10:42:06</td><td>stopped stressing slave-2</td></tr>
+<tr><td>250</td><td>2016:07:27 10:42:06</td><td>stopped stressing slave-3</td></tr>
+<tr><td>280</td><td>2016:07:27 10:42:36</td><td>Stop experiment</td></tr>
+</tbody></table>
+</pre>
+<h2>Latency graphs</h2>
+      <img src='./latency-avg.png'>
+      <img src='./latency-max.png'>
+      <img src='./throughput.png'>
+<h2>Page cache graphs for kafka</h2>
+      <img src='./kafka-pages-min-faults.png'>
+      <img src='./kafka-pages-maj-faults.png'>
+<h2>Page cache graphs for host</h2>
+      <img src='./host-pages-in.png'>
+      <img src='./host-pages-out.png'>
+      <img src='./host-pages-min-faults.png'>
+      <img src='./host-pages-maj-faults.png'>
+</html>

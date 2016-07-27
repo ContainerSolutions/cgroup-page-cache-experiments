@@ -1,0 +1,14 @@
+2016:07:11 06:30:50,1 records sent, 0.0 records/sec (0.00 MB/sec), 60001.0 ms avg latency, 60001.0 max latency.
+2016:07:11 06:30:50,org.apache.kafka.common.errors.TimeoutException: Failed to update metadata after 60000 ms.
+2016:07:11 06:31:50,1 records sent, 0.0 records/sec (0.00 MB/sec), 60001.0 ms avg latency, 60001.0 max latency.
+2016:07:11 06:31:50,org.apache.kafka.common.errors.TimeoutException: Failed to update metadata after 60000 ms.
+2016:07:11 06:32:50,1 records sent, 0.0 records/sec (0.00 MB/sec), 60000.0 ms avg latency, 60000.0 max latency.
+2016:07:11 06:32:50,org.apache.kafka.common.errors.TimeoutException: Failed to update metadata after 60000 ms.
+2016:07:11 06:33:50,1 records sent, 0.0 records/sec (0.00 MB/sec), 60000.0 ms avg latency, 60000.0 max latency.
+2016:07:11 06:33:50,org.apache.kafka.common.errors.TimeoutException: Failed to update metadata after 60000 ms.
+2016:07:11 06:34:50,1 records sent, 0.0 records/sec (0.00 MB/sec), 60000.0 ms avg latency, 60000.0 max latency.
+2016:07:11 06:34:50,org.apache.kafka.common.errors.TimeoutException: Failed to update metadata after 60000 ms.
+2016:07:11 06:35:50,1 records sent, 0.0 records/sec (0.00 MB/sec), 60000.0 ms avg latency, 60000.0 max latency.
+2016:07:11 06:35:50,org.apache.kafka.common.errors.TimeoutException: Failed to update metadata after 60000 ms.
+2016:07:11 06:36:50,1 records sent, 0.0 records/sec (0.00 MB/sec), 60000.0 ms avg latency, 60000.0 max latency.
+2016:07:11 06:36:50,org.apache.kafka.common.errors.TimeoutException: Failed to update metadata after 60000 ms.

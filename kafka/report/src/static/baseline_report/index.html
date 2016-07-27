@@ -1,0 +1,53 @@
+<html><h1>Baseline benchmark</h1>
+<h2>Events</h2>
+<pre>
+<table border=1><thead><tr><th>rel time</th><th>abs time</th><th>event</th></tr></thead><tbody>
+<tr><td>0</td><td>2016:07:27 09:40:29</td><td>kill disk caches at slave-1</td></tr>
+<tr><td>0</td><td>2016:07:27 09:40:29</td><td>kill disk caches at slave-2</td></tr>
+<tr><td>0</td><td>2016:07:27 09:40:29</td><td>kill disk caches at slave-3</td></tr>
+<tr><td>10</td><td>2016:07:27 09:40:39</td><td>start producer bench on client-1 with 10 msgs/s</td></tr>
+<tr><td>10</td><td>2016:07:27 09:40:39</td><td>start producer bench on client-2 with 10 msgs/s</td></tr>
+<tr><td>70</td><td>2016:07:27 09:41:39</td><td>DONE producer bench with 10 msgs/s</td></tr>
+<tr><td>130</td><td>2016:07:27 09:42:39</td><td>start producer bench on client-1 with 100 msgs/s</td></tr>
+<tr><td>130</td><td>2016:07:27 09:42:39</td><td>start producer bench on client-2 with 100 msgs/s</td></tr>
+<tr><td>190</td><td>2016:07:27 09:43:39</td><td>DONE producer bench with 100 msgs/s</td></tr>
+<tr><td>250</td><td>2016:07:27 09:44:39</td><td>start producer bench on client-1 with 200 msgs/s</td></tr>
+<tr><td>250</td><td>2016:07:27 09:44:39</td><td>start producer bench on client-2 with 200 msgs/s</td></tr>
+<tr><td>310</td><td>2016:07:27 09:45:39</td><td>DONE producer bench with 200 msgs/s</td></tr>
+<tr><td>370</td><td>2016:07:27 09:46:39</td><td>start producer bench on client-1 with 300 msgs/s</td></tr>
+<tr><td>370</td><td>2016:07:27 09:46:39</td><td>start producer bench on client-2 with 300 msgs/s</td></tr>
+<tr><td>430</td><td>2016:07:27 09:47:39</td><td>DONE producer bench with 300 msgs/s</td></tr>
+<tr><td>490</td><td>2016:07:27 09:48:39</td><td>start producer bench on client-1 with 400 msgs/s</td></tr>
+<tr><td>490</td><td>2016:07:27 09:48:39</td><td>start producer bench on client-2 with 400 msgs/s</td></tr>
+<tr><td>550</td><td>2016:07:27 09:49:39</td><td>DONE producer bench with 400 msgs/s</td></tr>
+<tr><td>610</td><td>2016:07:27 09:50:39</td><td>start producer bench on client-1 with 500 msgs/s</td></tr>
+<tr><td>610</td><td>2016:07:27 09:50:39</td><td>start producer bench on client-2 with 500 msgs/s</td></tr>
+<tr><td>670</td><td>2016:07:27 09:51:39</td><td>DONE producer bench with 500 msgs/s</td></tr>
+<tr><td>730</td><td>2016:07:27 09:52:39</td><td>start producer bench on client-1 with 600 msgs/s</td></tr>
+<tr><td>730</td><td>2016:07:27 09:52:39</td><td>start producer bench on client-2 with 600 msgs/s</td></tr>
+<tr><td>790</td><td>2016:07:27 09:53:39</td><td>DONE producer bench with 600 msgs/s</td></tr>
+<tr><td>850</td><td>2016:07:27 09:54:39</td><td>start producer bench on client-1 with 700 msgs/s</td></tr>
+<tr><td>850</td><td>2016:07:27 09:54:39</td><td>start producer bench on client-2 with 700 msgs/s</td></tr>
+<tr><td>910</td><td>2016:07:27 09:55:39</td><td>DONE producer bench with 700 msgs/s</td></tr>
+<tr><td>970</td><td>2016:07:27 09:56:39</td><td>start producer bench on client-1 with 800 msgs/s</td></tr>
+<tr><td>970</td><td>2016:07:27 09:56:39</td><td>start producer bench on client-2 with 800 msgs/s</td></tr>
+<tr><td>1030</td><td>2016:07:27 09:57:39</td><td>DONE producer bench with 800 msgs/s</td></tr>
+<tr><td>1090</td><td>2016:07:27 09:58:39</td><td>start producer bench on client-1 with 900 msgs/s</td></tr>
+<tr><td>1090</td><td>2016:07:27 09:58:39</td><td>start producer bench on client-2 with 900 msgs/s</td></tr>
+<tr><td>1150</td><td>2016:07:27 09:59:39</td><td>DONE producer bench with 900 msgs/s</td></tr>
+<tr><td>1270</td><td>2016:07:27 10:01:39</td><td>Stop experiment</td></tr>
+</tbody></table>
+</pre>
+<h2>Latency graphs</h2>
+      <img src='./latency-avg.png'>
+      <img src='./latency-max.png'>
+      <img src='./throughput.png'>
+<h2>Page cache graphs for kafka</h2>
+      <img src='./kafka-pages-min-faults.png'>
+      <img src='./kafka-pages-maj-faults.png'>
+<h2>Page cache graphs for host</h2>
+      <img src='./host-pages-in.png'>
+      <img src='./host-pages-out.png'>
+      <img src='./host-pages-min-faults.png'>
+      <img src='./host-pages-maj-faults.png'>
+</html>

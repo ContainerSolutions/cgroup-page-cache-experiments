@@ -1,0 +1,1 @@
+{"limited_kafka_mem_limit_in_mb":8704,"limited_stress_slice_size_limit_in_mb":7680,"producer_test_record_size_in_bytes":102400,"producer_test_throughput_msgs_per_s":300}

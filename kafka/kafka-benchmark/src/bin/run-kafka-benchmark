@@ -1,0 +1,41 @@
+#! /usr/bin/env ruby
+require 'tempfile'
+require "json"
+
+BENCH_TYPES = ["baseline", "direct", "direct-limited", "mesos"]
+
+$bench_type = ARGV[0]
+$report_dir = ARGV[1]
+
+unless BENCH_TYPES.include? $bench_type
+  raise("Invalid benchmark type '#{$bench_type}'")
+end
+
+# ZK will always run on the 1st master
+$zookeeper_address = "master-1";
+
+# Helper libraries
+require "kafka-benchmark/event-simulator"
+require "kafka-benchmark/ssh"
+require "kafka-benchmark/config"
+
+# contains functions to run the benchmark
+require "kafka-benchmark/benchmark"
+
+$config = Config.new(JSON.load File.read(ENV["BENCH_SETTINGS_FILE"]))
+
+def drop_caches_on(host)
+  ssh_command(host, "sync; echo 3 > /proc/sys/vm/drop_caches; hostname; free -m")
+end
+
+# TODO, generate from cluster conf.
+KAFKA_SLAVES = ["slave-1", "slave-2", "slave-3"]
+
+# TODO, generate from cluster conf.
+KAFKA_CLIENTS= ["client-1", "client-2"]
+
+##################################################
+# Actual performance test starts here
+##################################################
+
+require "kafka-benchmark/benchmarks/#{$bench_type}"

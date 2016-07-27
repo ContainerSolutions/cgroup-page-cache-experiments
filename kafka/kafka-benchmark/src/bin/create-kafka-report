@@ -1,0 +1,247 @@
+#!/usr/bin/env ruby
+$stdout.sync = true
+$stderr.sync = true
+require 'fileutils'
+require 'pathname'
+require 'time'
+require 'bigdecimal'
+
+require 'kafka-benchmark/process_output_graphs'
+
+def main
+  $bench_result_dir = ARGV[0]
+  $output_dir    = ARGV[1]
+
+  FileUtils.mkdir($output_dir)
+
+  r = Report.new($bench_result_dir, $output_dir)
+  begin
+    r.generate!
+  rescue Exception => e
+    raise e
+    $stderr.puts "Failed to generate report for #{report}"
+    $stderr.puts e.inspect
+    $stderr.puts e.backtrace
+    $stderr.puts "Continueing with next one"
+  end
+end
+
+class Report
+  attr_reader :path
+
+  def initialize(input_dir, output_path)
+    @input_dir = Pathname.new(input_dir)
+    @output_dir = Pathname.new(output_path)
+    @event_file = @input_dir.join("events.log")
+    @settings_file = @input_dir.join("settings.json")
+  end
+
+  def relative_events_html
+    result = "<table border=1><thead><tr><th>rel time</th><th>abs time</th><th>event</th></tr></thead><tbody>\n"
+    events = File.read(@event_file).split("\n")
+    first_time = DateTime.strptime(events.first.split(",").first, "%Y:%m:%d %H:%M:%S")
+    events.each do |event|
+      raw_time, description = event.split(",")
+      time = DateTime.strptime(raw_time, "%Y:%m:%d %H:%M:%S")
+      rel_time = ((time-first_time) * 24 * 60 * 60).to_i
+      result += "<tr><td>#{rel_time}</td><td>#{raw_time}</td><td>#{description}</td></tr>\n"
+    end
+    result += "</tbody></table>\n"
+
+    result
+  end
+
+  def generate!
+    puts "=============================="
+    puts "GENERATING REPORT FOR #{@path}"
+    puts "=============================="
+
+    FileUtils.mkdir_p(@output_dir)
+    
+    latency_and_througput_graphs_html = generate_latency_and_throughput_graphs!
+    page_cache_graphs_host_html = generate_page_cache_graphs_for_host!
+    page_cache_graphs_kafka_html = generate_page_cache_graphs_for_kafka!
+
+    File.open(@output_dir.join("index.html"), "w") do |f|
+      f.puts "<html><h1>#{@path}</h1>"
+      f.puts "<h2>Settings</h2>"
+      f.puts "<pre>"
+      f.puts File.read(@settings_file)
+      f.puts "</pre>"
+      f.puts "<h2>Events</h2>"
+      f.puts "<pre>"
+      f.puts relative_events_html
+      f.puts "</pre>"
+      f.puts "<h2>Latency graphs</h2>"
+      f.puts latency_and_througput_graphs_html
+      f.puts "<h2>Page cache graphs for kafka</h2>"
+      f.puts page_cache_graphs_kafka_html
+      f.puts "<h2>Page cache graphs for host</h2>"
+      f.puts page_cache_graphs_host_html
+      f.puts "</html>"
+    end
+    @ok = true
+  end
+  
+  def ok?
+    @ok == true
+  end
+
+  # Parse kafka benchmark client output & generate data for Rplotter.
+  def generate_latency_and_throughput_graphs!
+    html = ""
+    regexp = /^(?<date>.*,\d+) records sent, [\.\d]+ records\/sec \((?<throughput_mb_s>[\.\d]+) MB\/sec\), (?<latency_avg>[\.\d]+) ms avg latency, (?<latency_max>[\.\d]+) max latency\.$/
+
+    @plot_avg_latency = { }
+    @plot_max_latency = { }
+    @plot_throughput = { }
+
+    Dir[@input_dir.join("producers").join("*")].each do |file|
+      name = File.basename(file).sub(/\.[^.]+\z/,"")
+      raw_metrics = File.read(file).split("\n")
+      raw_metrics.shift # remove first (skewed) datapoint; it contains the zk connection stuff.
+      raw_metrics.pop # remove last line which only contains a summary 
+
+      datapoints_avg_latency = { }
+      datapoints_max_latency = { }
+      datapoints_throughput  = { }
+
+      raw_metrics.each do |raw_metric|
+        metric = regexp.match(raw_metric)
+        next if metric.nil? || metric["date"].nil?
+        results_at = DateTime.strptime(metric["date"], "%Y:%m:%d %H:%M:%S")
+        @current_date = results_at # hack to get right date/time for only reporting time.
+        datapoints_avg_latency[results_at] = BigDecimal.new metric["latency_avg"]
+        datapoints_max_latency[results_at] = BigDecimal.new metric["latency_max"]
+        datapoints_throughput[results_at]  = BigDecimal.new metric["throughput_mb_s"]
+      end
+
+      @plot_avg_latency[name] = datapoints_avg_latency
+      @plot_max_latency[name] = datapoints_max_latency
+      @plot_throughput[name]  = datapoints_throughput
+    end
+
+    RPlotter.new("Producer avg latency", "Latency (ms)",      @event_file, @plot_avg_latency).plot!(@output_dir.join("latency-avg.png"))
+    RPlotter.new("Producer max latency", "Latency (ms)",      @event_file, @plot_max_latency).plot!(@output_dir.join("latency-max.png"))
+    RPlotter.new("Producer throughput",  "Throughput (MB/s)", @event_file, @plot_throughput).plot!(@output_dir.join("throughput.png"))
+    
+
+    <<-EOHTML
+      <img src='./latency-avg.png'>
+      <img src='./latency-max.png'>
+      <img src='./throughput.png'>
+    EOHTML
+  end
+
+  # Parse sar output (from slave machines) & generate data for Rplotter.
+  def generate_page_cache_graphs_for_host!
+    html = ""
+    @plot_pages_in = { }
+    @plot_pages_out = { }
+    @plot_pages_faults = { }
+    @plot_pages_maj_faults = { }
+
+    Dir[@input_dir.join("monitoring/host").join("*")].each do |file|
+      name = File.basename(file).sub(/\.[^.]+\z/,"")
+      raw_metrics = File.read(file).split("\n")
+      2.times { raw_metrics.shift } # remove first 2 lines; banner + empty
+      header = raw_metrics.shift.split(/\s+/)
+      header.shift # first column contains the date/time
+
+      # Assertion to make sure that the columns are in the right order.
+      if header != ["pgpgin/s", "pgpgout/s", "fault/s", "majflt/s", "pgfree/s", "pgscank/s", "pgscand/s", "pgsteal/s", "%vmeff"]
+        raise "Unexpected sar header"
+      end
+
+      header.unshift "time"
+
+      datapoints_pages_in = { }
+      datapoints_pages_out = { }
+      datapoints_faults = { }
+      datapoints_maj_faults = { }
+
+
+      raw_metrics.each do |raw_metric|
+        # Skip if it's a header inbetween
+        next if (raw_metric.chomp == "") || raw_metric.include?("pgpgin/s")
+        metric = Hash[header.zip(raw_metric.chomp.split(/\s+/))]
+        t =  Time.parse(metric["time"]) #.to_datetime #(Time.parse(metric["time"]) - ((24 * 60 * 60)+1)).to_datetime
+        results_at = DateTime.new(@current_date.year, @current_date.month, @current_date.day, t.hour, t.min, t.sec)
+
+        datapoints_pages_in[results_at]   = BigDecimal.new metric["pgpgin/s"]
+        datapoints_pages_out[results_at]  = BigDecimal.new metric["pgpgout/s"]
+        datapoints_faults[results_at]     = BigDecimal.new metric["fault/s"]
+        datapoints_maj_faults[results_at] = BigDecimal.new metric["majflt/s"]
+      end
+
+      @plot_pages_in[name]          = datapoints_pages_in
+      @plot_pages_out[name]         = datapoints_pages_out
+      @plot_pages_faults[name]      = datapoints_faults
+      @plot_pages_maj_faults[name]  = datapoints_maj_faults
+    end
+
+    RPlotter.new("Pages in",          "pgpgin/s",  @event_file, @plot_pages_in).plot!(@output_dir.join("host-pages-in.png"))
+    RPlotter.new("Pages out",         "pgpgout/s", @event_file, @plot_pages_out).plot!(@output_dir.join("host-pages-out.png"))
+    RPlotter.new("Minor page faults", "faults/s",  @event_file, @plot_pages_faults).plot!(@output_dir.join("host-pages-min-faults.png"))
+    RPlotter.new("Major page faults", "majflts/s", @event_file, @plot_pages_maj_faults).plot!(@output_dir.join("host-pages-maj-faults.png"))
+    
+
+    <<-EOHTML
+      <img src='./host-pages-in.png'>
+      <img src='./host-pages-out.png'>
+      <img src='./host-pages-min-faults.png'>
+      <img src='./host-pages-maj-faults.png'>
+    EOHTML
+  end
+
+  # Parse sar output (from slave machines) & generate data for Rplotter.
+  def generate_page_cache_graphs_for_kafka!
+    html = ""
+    @plot_pages_min_faults = { }
+    @plot_pages_maj_faults = { }
+
+    Dir[@input_dir.join("monitoring/kafka").join("*")].each do |file|
+      name = File.basename(file).sub(/\.[^.]+\z/,"")
+      raw_metrics = File.read(file).split("\n")
+      2.times { raw_metrics.shift } # remove first 2 lines; banner + empty
+      header = raw_metrics.shift.split(/\s+/)
+      header.shift # first column contains the date/time
+
+      # Assertion to make sure that the columns are in the right order.
+      if header != ["UID", "PID", "minflt/s", "majflt/s", "VSZ", "RSS", "%MEM", "Command"]
+        raise "Unexpected pidstat header" + header.inspect
+      end
+
+      header.unshift "time"
+
+      datapoints_min_faults = { }
+      datapoints_maj_faults = { }
+
+      raw_metrics.each do |raw_metric|
+        next if (raw_metric.chomp == "") || raw_metric.include?("minflt/s")
+        metric = Hash[header.zip(raw_metric.split(/\s+/))]
+        #results_at = (Time.parse(metric["time"])-86401).to_datetime
+        t =  Time.parse(metric["time"])
+        results_at = DateTime.new(@current_date.year, @current_date.month, @current_date.day, t.hour, t.min, t.sec)
+        datapoints_min_faults[results_at] = BigDecimal.new metric["minflt/s"]
+        datapoints_maj_faults[results_at] = BigDecimal.new metric["majflt/s"]
+      end
+
+      @plot_pages_min_faults[name]  = datapoints_min_faults
+      @plot_pages_maj_faults[name]  = datapoints_maj_faults
+    end
+
+    RPlotter.new("Minor page faults", "faults/s",   @event_file, @plot_pages_min_faults).plot!(@output_dir.join("kafka-pages-min-faults.png"))
+    RPlotter.new("Major page faults", "majflts/s",  @event_file, @plot_pages_maj_faults).plot!(@output_dir.join("kafka-pages-maj-faults.png"))
+    
+    <<-EOHTML
+      <img src='./kafka-pages-min-faults.png'>
+      <img src='./kafka-pages-maj-faults.png'>
+    EOHTML
+  end
+end
+
+main
+
+
+

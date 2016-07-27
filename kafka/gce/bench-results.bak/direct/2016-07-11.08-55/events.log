@@ -1,0 +1,12 @@
+2016:07:11 06:56:00,kill disk caches at slave-1
+2016:07:11 06:56:00,kill disk caches at slave-2
+2016:07:11 06:56:00,kill disk caches at slave-3
+2016:07:11 06:56:10,start producer bench on client-1
+2016:07:11 06:56:10,start producer bench on client-2
+2016:07:11 06:59:10,start stress slave-1 for 60s
+2016:07:11 06:59:10,start stress slave-2 for 60s
+2016:07:11 06:59:10,start stress slave-3 for 60s
+2016:07:11 07:00:10,stopped stressing slave-1
+2016:07:11 07:00:10,stopped stressing slave-2
+2016:07:11 07:00:10,stopped stressing slave-3
+2016:07:11 07:03:11,Stop experiment

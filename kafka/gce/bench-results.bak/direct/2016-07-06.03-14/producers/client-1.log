@@ -1,0 +1,156 @@
+2016:07:06 01:14:25,5551 records sent, 1110.2 records/sec (108.42 MB/sec), 254.3 ms avg latency, 384.0 max latency.
+2016:07:06 01:14:30,6348 records sent, 1269.6 records/sec (123.98 MB/sec), 258.8 ms avg latency, 493.0 max latency.
+2016:07:06 01:14:35,5928 records sent, 1185.6 records/sec (115.78 MB/sec), 261.8 ms avg latency, 603.0 max latency.
+2016:07:06 01:14:40,3478 records sent, 691.2 records/sec (67.50 MB/sec), 456.4 ms avg latency, 780.0 max latency.
+2016:07:06 01:14:45,3437 records sent, 670.1 records/sec (65.44 MB/sec), 487.1 ms avg latency, 882.0 max latency.
+2016:07:06 01:14:50,3334 records sent, 654.9 records/sec (63.95 MB/sec), 509.7 ms avg latency, 886.0 max latency.
+2016:07:06 01:14:55,3028 records sent, 604.2 records/sec (59.00 MB/sec), 542.1 ms avg latency, 876.0 max latency.
+2016:07:06 01:15:00,3107 records sent, 621.4 records/sec (60.68 MB/sec), 529.7 ms avg latency, 854.0 max latency.
+2016:07:06 01:15:06,3028 records sent, 583.7 records/sec (57.00 MB/sec), 526.0 ms avg latency, 1077.0 max latency.
+2016:07:06 01:15:11,2952 records sent, 590.4 records/sec (57.66 MB/sec), 608.5 ms avg latency, 1099.0 max latency.
+2016:07:06 01:15:16,2768 records sent, 553.6 records/sec (54.06 MB/sec), 572.3 ms avg latency, 919.0 max latency.
+2016:07:06 01:15:21,3109 records sent, 621.6 records/sec (60.70 MB/sec), 520.1 ms avg latency, 936.0 max latency.
+2016:07:06 01:15:26,2457 records sent, 491.4 records/sec (47.99 MB/sec), 688.8 ms avg latency, 955.0 max latency.
+2016:07:06 01:15:31,2207 records sent, 441.4 records/sec (43.11 MB/sec), 751.0 ms avg latency, 998.0 max latency.
+2016:07:06 01:15:36,1685 records sent, 336.0 records/sec (32.81 MB/sec), 929.0 ms avg latency, 1278.0 max latency.
+2016:07:06 01:15:41,1836 records sent, 366.5 records/sec (35.79 MB/sec), 924.6 ms avg latency, 1388.0 max latency.
+2016:07:06 01:15:46,1831 records sent, 364.5 records/sec (35.60 MB/sec), 893.2 ms avg latency, 1198.0 max latency.
+2016:07:06 01:15:51,1674 records sent, 334.1 records/sec (32.62 MB/sec), 949.8 ms avg latency, 1389.0 max latency.
+2016:07:06 01:15:56,1887 records sent, 376.4 records/sec (36.76 MB/sec), 897.5 ms avg latency, 1394.0 max latency.
+2016:07:06 01:16:01,1878 records sent, 374.6 records/sec (36.58 MB/sec), 878.7 ms avg latency, 1143.0 max latency.
+2016:07:06 01:16:06,1963 records sent, 392.6 records/sec (38.34 MB/sec), 870.9 ms avg latency, 1211.0 max latency.
+2016:07:06 01:16:11,1916 records sent, 381.1 records/sec (37.22 MB/sec), 871.9 ms avg latency, 1123.0 max latency.
+2016:07:06 01:16:16,1877 records sent, 374.8 records/sec (36.60 MB/sec), 824.5 ms avg latency, 1136.0 max latency.
+2016:07:06 01:16:21,1873 records sent, 374.4 records/sec (36.56 MB/sec), 876.6 ms avg latency, 1200.0 max latency.
+2016:07:06 01:16:26,5541 records sent, 1108.2 records/sec (108.22 MB/sec), 320.7 ms avg latency, 1083.0 max latency.
+2016:07:06 01:16:31,6550 records sent, 1310.0 records/sec (127.93 MB/sec), 250.2 ms avg latency, 616.0 max latency.
+2016:07:06 01:16:36,3701 records sent, 740.2 records/sec (72.29 MB/sec), 431.2 ms avg latency, 632.0 max latency.
+2016:07:06 01:16:41,3199 records sent, 639.2 records/sec (62.42 MB/sec), 519.9 ms avg latency, 889.0 max latency.
+2016:07:06 01:16:46,3147 records sent, 627.5 records/sec (61.28 MB/sec), 519.3 ms avg latency, 873.0 max latency.
+2016:07:06 01:16:51,3136 records sent, 627.2 records/sec (61.25 MB/sec), 527.4 ms avg latency, 673.0 max latency.
+2016:07:06 01:16:56,2836 records sent, 567.2 records/sec (55.39 MB/sec), 581.8 ms avg latency, 963.0 max latency.
+2016:07:06 01:17:01,3317 records sent, 663.4 records/sec (64.79 MB/sec), 488.7 ms avg latency, 822.0 max latency.
+2016:07:06 01:17:06,2664 records sent, 532.8 records/sec (52.03 MB/sec), 527.6 ms avg latency, 1280.0 max latency.
+2016:07:06 01:17:11,3237 records sent, 646.9 records/sec (63.17 MB/sec), 574.8 ms avg latency, 1532.0 max latency.
+2016:07:06 01:17:16,3241 records sent, 646.6 records/sec (63.15 MB/sec), 506.2 ms avg latency, 878.0 max latency.
+2016:07:06 01:17:22,1684 records sent, 278.3 records/sec (27.17 MB/sec), 558.7 ms avg latency, 3721.0 max latency.
+2016:07:06 01:17:27,15 records sent, 2.7 records/sec (0.26 MB/sec), 6064.0 ms avg latency, 9261.0 max latency.
+2016:07:06 01:17:33,12 records sent, 2.4 records/sec (0.23 MB/sec), 11546.0 ms avg latency, 14280.0 max latency.
+2016:07:06 01:17:38,31 records sent, 5.5 records/sec (0.54 MB/sec), 18033.8 ms avg latency, 19853.0 max latency.
+2016:07:06 01:17:43,44 records sent, 8.4 records/sec (0.82 MB/sec), 23784.8 ms avg latency, 24998.0 max latency.
+2016:07:06 01:17:49,105 records sent, 19.5 records/sec (1.90 MB/sec), 26570.6 ms avg latency, 30249.0 max latency.
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:49,org.apache.kafka.common.errors.TimeoutException: Batch Expired
+2016:07:06 01:17:54,162 records sent, 31.5 records/sec (3.07 MB/sec), 27543.7 ms avg latency, 30303.0 max latency.
+2016:07:06 01:18:00,23 records sent, 4.0 records/sec (0.39 MB/sec), 17463.5 ms avg latency, 18906.0 max latency.

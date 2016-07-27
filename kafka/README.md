@@ -1,9 +1,17 @@
-Benchmarking kafka with cgroups.
-===============================
+Repreducable kafka benchmark setup
+----------------------------------
 
-Use `run_cluster_on_gce.sh` to run a kafka cluster on GCE.
+This git repository contains all the code, definitions and findings
+of our analysis of running Kafka on top of Mesos.
 
-It assumes a topology of two kafka machines, and a host from which the tests are run.
+The report can be found in the report/ directory.
 
-The file `benchmark1.sh` contains scripts to run the first benchmark.
+NOTE: patched version of nixops needed for gce rule, 1.4 release immenent.
 
+NEXT RESEARCH STEPS:
+ - run on actual hardware.
+
+NEXT STEPS:
+- baseline benchmark.
+- finding the PID of kafka must be improved; required voor mesos version.
+- pgfree/s

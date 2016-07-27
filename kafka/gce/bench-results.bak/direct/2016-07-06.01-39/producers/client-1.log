@@ -1,0 +1,24 @@
+2016:07:05 23:39:51,5116 records sent, 1023.2 records/sec (1.00 MB/sec), 1.2 ms avg latency, 236.0 max latency.
+2016:07:05 23:39:56,5127 records sent, 1025.0 records/sec (1.00 MB/sec), 0.7 ms avg latency, 16.0 max latency.
+2016:07:05 23:40:01,5125 records sent, 1024.6 records/sec (1.00 MB/sec), 0.7 ms avg latency, 8.0 max latency.
+2016:07:05 23:40:06,5125 records sent, 1024.4 records/sec (1.00 MB/sec), 0.7 ms avg latency, 12.0 max latency.
+2016:07:05 23:40:11,5122 records sent, 1024.2 records/sec (1.00 MB/sec), 0.6 ms avg latency, 11.0 max latency.
+2016:07:05 23:40:16,5124 records sent, 1024.4 records/sec (1.00 MB/sec), 0.8 ms avg latency, 33.0 max latency.
+2016:07:05 23:40:21,5122 records sent, 1024.4 records/sec (1.00 MB/sec), 1.2 ms avg latency, 67.0 max latency.
+2016:07:05 23:40:26,5124 records sent, 1024.6 records/sec (1.00 MB/sec), 0.6 ms avg latency, 6.0 max latency.
+2016:07:05 23:40:31,5125 records sent, 1024.6 records/sec (1.00 MB/sec), 0.7 ms avg latency, 31.0 max latency.
+2016:07:05 23:40:36,5123 records sent, 1024.4 records/sec (1.00 MB/sec), 0.6 ms avg latency, 7.0 max latency.
+2016:07:05 23:40:41,5123 records sent, 1024.4 records/sec (1.00 MB/sec), 0.6 ms avg latency, 23.0 max latency.
+2016:07:05 23:40:46,5125 records sent, 1024.8 records/sec (1.00 MB/sec), 0.6 ms avg latency, 8.0 max latency.
+2016:07:05 23:40:51,5122 records sent, 1024.4 records/sec (1.00 MB/sec), 0.8 ms avg latency, 33.0 max latency.
+2016:07:05 23:40:56,5125 records sent, 1024.8 records/sec (1.00 MB/sec), 0.6 ms avg latency, 8.0 max latency.
+2016:07:05 23:41:01,5123 records sent, 1024.2 records/sec (1.00 MB/sec), 0.6 ms avg latency, 19.0 max latency.
+2016:07:05 23:41:06,5124 records sent, 1024.6 records/sec (1.00 MB/sec), 0.6 ms avg latency, 13.0 max latency.
+2016:07:05 23:41:11,5123 records sent, 1024.4 records/sec (1.00 MB/sec), 0.6 ms avg latency, 7.0 max latency.
+2016:07:05 23:41:16,5122 records sent, 1024.2 records/sec (1.00 MB/sec), 0.6 ms avg latency, 10.0 max latency.
+2016:07:05 23:41:21,5125 records sent, 1024.6 records/sec (1.00 MB/sec), 0.6 ms avg latency, 9.0 max latency.
+2016:07:05 23:41:26,5121 records sent, 1024.2 records/sec (1.00 MB/sec), 0.6 ms avg latency, 8.0 max latency.
+2016:07:05 23:41:31,5122 records sent, 1024.4 records/sec (1.00 MB/sec), 0.6 ms avg latency, 8.0 max latency.
+2016:07:05 23:41:36,5123 records sent, 1024.2 records/sec (1.00 MB/sec), 0.6 ms avg latency, 9.0 max latency.
+2016:07:05 23:41:41,5121 records sent, 1024.2 records/sec (1.00 MB/sec), 0.6 ms avg latency, 10.0 max latency.
+2016:07:05 23:41:46,122880 records sent, 1023.846423 records/sec (1.00 MB/sec), 0.68 ms avg latency, 236.00 ms max latency, 1 ms 50th, 1 ms 95th, 3 ms 99th, 20 ms 99.9th.
